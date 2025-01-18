@@ -14,157 +14,157 @@
 * @vue/runtime-dom v3.5.13
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
-**/let Ln;const $s=typeof window<"u"&&window.trustedTypes;if($s)try{Ln=$s.createPolicy("vue",{createHTML:e=>e})}catch{}const Yr=Ln?e=>Ln.createHTML(e):e=>e,il="http://www.w3.org/2000/svg",ol="http://www.w3.org/1998/Math/MathML",Pe=typeof document<"u"?document:null,Ps=Pe&&Pe.createElement("template"),ll={insert:(e,t,n)=>{t.insertBefore(e,n||null)},remove:e=>{const t=e.parentNode;t&&t.removeChild(e)},createElement:(e,t,n,s)=>{const r=t==="svg"?Pe.createElementNS(il,e):t==="mathml"?Pe.createElementNS(ol,e):n?Pe.createElement(e,{is:n}):Pe.createElement(e);return e==="select"&&s&&s.multiple!=null&&r.setAttribute("multiple",s.multiple),r},createText:e=>Pe.createTextNode(e),createComment:e=>Pe.createComment(e),setText:(e,t)=>{e.nodeValue=t},setElementText:(e,t)=>{e.textContent=t},parentNode:e=>e.parentNode,nextSibling:e=>e.nextSibling,querySelector:e=>Pe.querySelector(e),setScopeId(e,t){e.setAttribute(t,"")},insertStaticContent(e,t,n,s,r,i){const o=n?n.previousSibling:t.lastChild;if(r&&(r===i||r.nextSibling))for(;t.insertBefore(r.cloneNode(!0),n),!(r===i||!(r=r.nextSibling)););else{Ps.innerHTML=Yr(s==="svg"?`<svg>${e}</svg>`:s==="mathml"?`<math>${e}</math>`:e);const l=Ps.content;if(s==="svg"||s==="mathml"){const f=l.firstChild;for(;f.firstChild;)l.appendChild(f.firstChild);l.removeChild(f)}t.insertBefore(l,n)}return[o?o.nextSibling:t.firstChild,n?n.previousSibling:t.lastChild]}},cl=Symbol("_vtc");function fl(e,t,n){const s=e[cl];s&&(t=(t?[t,...s]:[...s]).join(" ")),t==null?e.removeAttribute("class"):n?e.setAttribute("class",t):e.className=t}const en=Symbol("_vod"),Gr=Symbol("_vsh"),ul={beforeMount(e,{value:t},{transition:n}){e[en]=e.style.display==="none"?"":e.style.display,n&&t?n.beforeEnter(e):_t(e,t)},mounted(e,{value:t},{transition:n}){n&&t&&n.enter(e)},updated(e,{value:t,oldValue:n},{transition:s}){!t!=!n&&(s?t?(s.beforeEnter(e),_t(e,!0),s.enter(e)):s.leave(e,()=>{_t(e,!1)}):_t(e,t))},beforeUnmount(e,{value:t}){_t(e,t)}};function _t(e,t){e.style.display=t?e[en]:"none",e[Gr]=!t}const al=Symbol(""),dl=/(^|;)\s*display\s*:/;function hl(e,t,n){const s=e.style,r=Y(n);let i=!1;if(n&&!r){if(t)if(Y(t))for(const o of t.split(";")){const l=o.slice(0,o.indexOf(":")).trim();n[l]==null&&kt(s,l,"")}else for(const o in t)n[o]==null&&kt(s,o,"");for(const o in n)o==="display"&&(i=!0),kt(s,o,n[o])}else if(r){if(t!==n){const o=s[al];o&&(n+=";"+o),s.cssText=n,i=dl.test(n)}}else t&&e.removeAttribute("style");en in e&&(e[en]=i?s.display:"",e[Gr]&&(s.display="none"))}const Ds=/\s*!important$/;function kt(e,t,n){if(T(n))n.forEach(s=>kt(e,t,s));else if(n==null&&(n=""),t.startsWith("--"))e.setProperty(t,n);else{const s=pl(e,t);Ds.test(n)?e.setProperty(Le(s),n.replace(Ds,""),"important"):e[s]=n}}const Vs=["Webkit","Moz","ms"],On={};function pl(e,t){const n=On[t];if(n)return n;let s=_e(t);if(s!=="filter"&&s in e)return On[t]=s;s=on(s);for(let r=0;r<Vs.length;r++){const i=Vs[r]+s;if(i in e)return On[t]=i}return t}const Fs="http://www.w3.org/1999/xlink";function Ns(e,t,n,s,r,i=di(t)){s&&t.startsWith("xlink:")?n==null?e.removeAttributeNS(Fs,t.slice(6,t.length)):e.setAttributeNS(Fs,t,n):n==null||i&&!Gs(n)?e.removeAttribute(t):e.setAttribute(t,i?"":Ae(n)?String(n):n)}function Hs(e,t,n,s,r){if(t==="innerHTML"||t==="textContent"){n!=null&&(e[t]=t==="innerHTML"?Yr(n):n);return}const i=e.tagName;if(t==="value"&&i!=="PROGRESS"&&!i.includes("-")){const l=i==="OPTION"?e.getAttribute("value")||"":e.value,f=n==null?e.type==="checkbox"?"on":"":String(n);(l!==f||!("_value"in e))&&(e.value=f),n==null&&e.removeAttribute(t),e._value=n;return}let o=!1;if(n===""||n==null){const l=typeof e[t];l==="boolean"?n=Gs(n):n==null&&l==="string"?(n="",o=!0):l==="number"&&(n=0,o=!0)}try{e[t]=n}catch{}o&&e.removeAttribute(r||t)}function Ge(e,t,n,s){e.addEventListener(t,n,s)}function gl(e,t,n,s){e.removeEventListener(t,n,s)}const zs=Symbol("_vei");function ml(e,t,n,s,r=null){const i=e[zs]||(e[zs]={}),o=i[t];if(s&&o)o.value=s;else{const[l,f]=_l(t);if(s){const d=i[t]=yl(s,r);Ge(e,l,d,f)}else o&&(gl(e,l,o,f),i[t]=void 0)}}const js=/(?:Once|Passive|Capture)$/;function _l(e){let t;if(js.test(e)){t={};let s;for(;s=e.match(js);)e=e.slice(0,e.length-s[0].length),t[s[0].toLowerCase()]=!0}return[e[2]===":"?e.slice(3):Le(e.slice(2)),t]}let En=0;const bl=Promise.resolve(),xl=()=>En||(bl.then(()=>En=0),En=Date.now());function yl(e,t){const n=s=>{if(!s._vts)s._vts=Date.now();else if(s._vts<=n.attached)return;Re(vl(s,n.value),t,5,[s])};return n.value=e,n.attached=xl(),n}function vl(e,t){if(T(t)){const n=e.stopImmediatePropagation;return e.stopImmediatePropagation=()=>{n.call(e),e._stopped=!0},t.map(s=>r=>!r._stopped&&s&&s(r))}else return t}const Ls=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&e.charCodeAt(2)>96&&e.charCodeAt(2)<123,wl=(e,t,n,s,r,i)=>{const o=r==="svg";t==="class"?fl(e,s,o):t==="style"?hl(e,n,s):nn(t)?Bn(t)||ml(e,t,n,s,i):(t[0]==="."?(t=t.slice(1),!0):t[0]==="^"?(t=t.slice(1),!1):Cl(e,t,s,o))?(Hs(e,t,s),!e.tagName.includes("-")&&(t==="value"||t==="checked"||t==="selected")&&Ns(e,t,s,o,i,t!=="value")):e._isVueCE&&(/[A-Z]/.test(t)||!Y(s))?Hs(e,_e(t),s,i,t):(t==="true-value"?e._trueValue=s:t==="false-value"&&(e._falseValue=s),Ns(e,t,s,o))};function Cl(e,t,n,s){if(s)return!!(t==="innerHTML"||t==="textContent"||t in e&&Ls(t)&&$(n));if(t==="spellcheck"||t==="draggable"||t==="translate"||t==="form"||t==="list"&&e.tagName==="INPUT"||t==="type"&&e.tagName==="TEXTAREA")return!1;if(t==="width"||t==="height"){const r=e.tagName;if(r==="IMG"||r==="VIDEO"||r==="CANVAS"||r==="SOURCE")return!1}return Ls(t)&&Y(n)?!1:t in e}const tn=e=>{const t=e.props["onUpdate:modelValue"]||!1;return T(t)?n=>Ut(t,n):t};function Sl(e){e.target.composing=!0}function Us(e){const t=e.target;t.composing&&(t.composing=!1,t.dispatchEvent(new Event("input")))}const ct=Symbol("_assign"),Xr={created(e,{modifiers:{lazy:t,trim:n,number:s}},r){e[ct]=tn(r);const i=s||r.props&&r.props.type==="number";Ge(e,t?"change":"input",o=>{if(o.target.composing)return;let l=e.value;n&&(l=l.trim()),i&&(l=In(l)),e[ct](l)}),n&&Ge(e,"change",()=>{e.value=e.value.trim()}),t||(Ge(e,"compositionstart",Sl),Ge(e,"compositionend",Us),Ge(e,"change",Us))},mounted(e,{value:t}){e.value=t??""},beforeUpdate(e,{value:t,oldValue:n,modifiers:{lazy:s,trim:r,number:i}},o){if(e[ct]=tn(o),e.composing)return;const l=(i||e.type==="number")&&!/^0\d/.test(e.value)?In(e.value):e.value,f=t??"";l!==f&&(document.activeElement===e&&e.type!=="range"&&(s&&t===n||r&&e.value.trim()===f)||(e.value=f))}},Ml={deep:!0,created(e,t,n){e[ct]=tn(n),Ge(e,"change",()=>{const s=e._modelValue,r=Tl(e),i=e.checked,o=e[ct];if(T(s)){const l=Xs(s,r),f=l!==-1;if(i&&!f)o(s.concat(r));else if(!i&&f){const d=[...s];d.splice(l,1),o(d)}}else if(sn(s)){const l=new Set(s);i?l.add(r):l.delete(r),o(l)}else o(Zr(e,i))})},mounted:Bs,beforeUpdate(e,t,n){e[ct]=tn(n),Bs(e,t,n)}};function Bs(e,{value:t,oldValue:n},s){e._modelValue=t;let r;if(T(t))r=Xs(t,s.props.value)>-1;else if(sn(t))r=t.has(s.props.value);else{if(t===n)return;r=fn(t,Zr(e,!0))}e.checked!==r&&(e.checked=r)}function Tl(e){return"_value"in e?e._value:e.value}function Zr(e,t){const n=t?"_trueValue":"_falseValue";return n in e?e[n]:t}const Ol=re({patchProp:wl},ll);let Ks;function El(){return Ks||(Ks=Io(Ol))}const Il=(...e)=>{const t=El().createApp(...e),{mount:n}=t;return t.mount=s=>{const r=Rl(s);if(!r)return;const i=t._component;!$(i)&&!i.render&&!i.template&&(i.template=r.innerHTML),r.nodeType===1&&(r.textContent="");const o=n(r,!1,Al(r));return r instanceof Element&&(r.removeAttribute("v-cloak"),r.setAttribute("data-v-app","")),o},t};function Al(e){if(e instanceof SVGElement)return"svg";if(typeof MathMLElement=="function"&&e instanceof MathMLElement)return"mathml"}function Rl(e){return Y(e)?document.querySelector(e):e}const Q=(e,t)=>{const n=e.__vccOpts||e;for(const[s,r]of t)n[s]=r;return n},$l={class:"dice-input-number"},Pl={class:"dice-input-number__label"},Dl=["name"],Vl={__name:"DiceInputNumber",props:rs({label:{type:String,default:""},name:{type:String,default:""}},{modelValue:{},modelModifiers:{}}),emits:["update:modelValue"],setup(e){const t=e,n=ls(e,"modelValue");function s(r){r.target.value>100&&(n.value=100)}return(r,i)=>(H(),W("div",$l,[P("label",Pl,[cs(xe(t.label)+" ",1),ts(P("input",{class:"dice-input-number__input",type:"number",name:t.name,min:"0",max:"100","onUpdate:modelValue":i[0]||(i[0]=o=>n.value=o),onInput:s},null,40,Dl),[[Xr,n.value]])])]))}},Qr=Q(Vl,[["__scopeId","data-v-1456a51a"]]),Fl={},Nl={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function Hl(e,t){return H(),W("svg",Nl,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M2421 5105 c-93 -21 -216 -85 -289 -152 -54 -49 -229 -299 -1097
--1568 -954 -1396 -1031 -1511 -1016 -1526 29 -29 2531 -1849 2542 -1849 10 0
-2512 1820 2540 1849 15 15 -61 129 -1016 1526 -849 1241 -1045 1520 -1096
-1568 -148 136 -367 195 -568 152z m-73 -3450 l-3 -967 -877 639 c-500 363
--875 643 -873 650 2 7 397 587 877 1289 l873 1277 3 -961 c1 -528 1 -1395 0
--1927z m1307 1602 c476 -697 868 -1273 870 -1280 2 -7 -378 -290 -867 -647
--480 -349 -875 -636 -880 -638 -4 -2 -8 864 -8 1924 0 1145 4 1924 9 1919 5
--6 399 -581 876 -1278z`})],-1)]))}const zl=Q(Fl,[["render",Hl]]),jl={},Ll={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function Ul(e,t){return H(),W("svg",Ll,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M2425 5105 c-33 -7 -86 -24 -117 -38 -32 -14 -516 -301 -1078 -638
-l-1020 -612 0 -1257 0 -1257 1020 -612 c562 -337 1045 -624 1075 -637 152 -70
-358 -70 510 0 30 13 513 300 1075 637 l1020 612 0 1257 0 1257 -1020 612
-c-562 337 -1045 624 -1075 637 -111 51 -266 67 -390 39z m1027 -910 c450 -270
-817 -493 818 -496 0 -3 -385 -237 -855 -519 l-855 -513 -855 513 c-470 282
--855 516 -855 519 1 6 1497 906 1603 964 45 25 61 28 117 25 l65 -4 817 -489z
-m-1919 -1410 l817 -490 0 -888 c0 -489 -3 -886 -7 -884 -5 2 -389 233 -855
-512 l-848 508 0 889 0 889 38 -23 c22 -13 406 -243 855 -513z m2947 -354 l0
--888 -847 -508 c-467 -279 -851 -510 -855 -512 -5 -2 -8 395 -8 884 l0 888
-853 512 c468 282 853 512 855 513 1 0 2 -400 2 -889z`})],-1)]))}const Bl=Q(jl,[["render",Ul]]),Kl={},Wl={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function kl(e,t){return H(),W("svg",Wl,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M2468 5109 c-87 -12 -187 -51 -263 -100 -59 -38 -201 -195 -1131
--1244 -585 -660 -1064 -1202 -1064 -1205 0 -11 2082 -2356 2133 -2403 66 -61
-190 -123 287 -143 130 -28 299 -6 415 53 108 56 149 100 1204 1292 581 656
-1056 1197 1056 1201 0 4 -476 545 -1058 1203 -1141 1290 -1108 1255 -1258
-1311 -61 23 -194 47 -242 45 -12 -1 -48 -5 -79 -10z m-118 -1729 c0 -643 -4
--1170 -9 -1170 -11 0 -1634 480 -1639 485 -5 5 1631 1854 1641 1855 4 0 7
--526 7 -1170z m1253 242 c686 -776 816 -928 800 -934 -28 -12 -1612 -478
--1623 -478 -7 0 -10 412 -10 1170 0 644 3 1170 8 1169 4 0 375 -417 825 -927z
-m-2033 -1632 c338 -100 652 -192 698 -206 l82 -25 0 -595 c0 -328 -4 -594 -8
--592 -10 3 -1403 1575 -1416 1597 -6 10 -4 12 10 8 11 -3 296 -87 634 -187z
-m2619 173 c-46 -57 -1404 -1589 -1411 -1591 -4 -2 -8 264 -8 592 l0 595 53 16
-c28 8 347 102 707 209 360 107 659 195 664 195 5 1 2 -7 -5 -16z`})],-1)]))}const Jl=Q(Kl,[["render",kl]]),ql={},Yl={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function Gl(e,t){return H(),W("svg",Yl,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M2427 5110 c-80 -14 -188 -50 -257 -86 -156 -82 -156 -81 -978 -1064
--425 -509 -793 -956 -817 -995 -239 -380 -211 -850 74 -1228 39 -53 1514
--1497 1589 -1557 196 -156 479 -216 729 -155 86 22 233 90 299 141 79 60 1567
-1520 1615 1583 100 136 165 275 201 434 27 120 29 306 4 427 -23 107 -85 265
--139 352 -67 109 -1570 1902 -1646 1964 -181 150 -446 222 -674 184z m-566
--1504 c-170 -466 -311 -850 -314 -852 -2 -3 -191 -36 -418 -74 -228 -38 -424
--71 -435 -73 -20 -3 -21 -1 -13 22 28 79 136 215 779 985 388 464 706 843 707
-842 2 -1 -136 -384 -306 -850z m1809 -1 c535 -641 709 -857 738 -912 20 -39
-33 -75 30 -79 -7 -6 -855 130 -864 139 -3 3 -136 364 -295 803 -159 440 -299
-824 -310 854 -11 30 -16 51 -10 45 5 -5 325 -388 711 -850z m-810 -146 c162
--446 296 -814 297 -818 2 -5 -547 -423 -583 -444 -10 -6 -102 57 -314 215
--165 123 -298 226 -297 229 37 112 594 1629 597 1629 3 0 138 -365 300 -811z
-m-853 -1389 l342 -255 1 -662 c0 -427 -3 -663 -10 -663 -5 0 -42 30 -82 68
--139 130 -1443 1405 -1471 1438 -39 47 -97 144 -97 163 0 13 83 30 458 93 251
-42 471 76 487 75 22 -2 124 -73 372 -257z m1951 184 c251 -41 463 -77 470 -79
-15 -6 -24 -88 -73 -152 -18 -23 -167 -174 -331 -335 -165 -161 -502 -491 -750
--734 -247 -243 -460 -446 -472 -453 l-22 -12 0 664 0 665 342 256 c188 141
-350 256 360 256 10 0 224 -34 476 -76z`})],-1)]))}const Xl=Q(ql,[["render",Gl]]),Zl={},Ql={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function ec(e,t){return H(),W("svg",Ql,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M2035 5113 c-200 -25 -300 -70 -745 -336 -428 -256 -486 -295 -580
--394 -92 -96 -110 -122 -367 -553 -248 -416 -271 -460 -311 -608 l-27 -97 0
--565 0 -565 27 -97 c40 -148 63 -192 311 -608 256 -428 295 -486 394 -580 95
--91 121 -109 531 -354 402 -241 487 -285 630 -324 l97 -27 565 0 565 0 100 28
-c141 38 251 95 645 332 407 245 412 248 507 338 102 98 141 154 387 565 241
-402 285 487 324 630 l27 97 0 565 0 565 -27 97 c-15 53 -44 135 -66 182 -48
-101 -454 783 -524 877 -53 74 -171 189 -239 236 -87 60 -736 447 -819 489 -97
-49 -222 88 -334 103 -72 10 -996 14 -1071 4z m1138 -454 c65 -26 527 -295 527
--308 0 -3 -256 -70 -570 -149 l-570 -142 -570 142 c-314 79 -570 146 -570 149
-0 6 404 251 468 283 19 10 66 26 105 36 67 18 108 19 592 17 l520 -2 68 -26z
-m-1518 -812 l690 -173 3 -490 2 -489 -506 -253 c-417 -208 -509 -251 -520
--240 -7 7 -200 238 -428 513 -274 329 -414 505 -411 515 9 24 469 790 475 790
-3 0 316 -78 695 -173z m2742 -214 c128 -214 235 -395 238 -403 3 -10 -137
--186 -411 -515 -228 -275 -421 -506 -428 -513 -11 -11 -103 32 -520 240 l-506
-253 2 489 3 490 685 172 c377 95 690 173 695 173 6 1 115 -173 242 -386z
-m-3620 -1443 l319 -385 202 -539 c111 -297 200 -541 198 -543 -2 -2 -95 51
--206 118 -289 174 -275 157 -568 647 -157 262 -250 427 -264 470 -20 62 -22
-90 -26 357 -3 251 -1 288 11 275 8 -8 158 -188 334 -400z m3911 70 c-4 -209
--7 -242 -26 -302 -15 -43 -106 -206 -264 -470 -294 -491 -280 -474 -567 -646
--112 -68 -205 -121 -207 -119 -2 2 87 246 198 543 l202 539 330 398 331 397 3
--52 c2 -29 2 -159 0 -288z m-1623 -192 c278 -139 505 -255 505 -258 0 -3 -116
--313 -258 -690 l-257 -685 -495 0 -495 0 -258 688 c-143 379 -257 690 -255
-692 3 3 1000 503 1005 504 2 1 230 -113 508 -251z`})],-1)]))}const tc=Q(Zl,[["render",ec]]),nc={},sc={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function rc(e,t){return H(),W("svg",sc,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M1450 4480 l-1105 -639 0 -1281 0 -1281 1108 -640 1108 -639 1107
-639 1107 639 0 1282 0 1282 -1100 635 c-605 349 -1104 637 -1110 639 -5 1
--507 -285 -1115 -636z m1611 -387 c272 -334 496 -610 497 -615 2 -4 -447 -8
--998 -8 -551 0 -1000 4 -998 8 7 17 991 1222 998 1222 4 0 230 -273 501 -607z
-m-1158 284 c-141 -178 -698 -857 -702 -857 -17 1 -391 227 -389 235 2 8 1093
-645 1106 645 2 0 -5 -10 -15 -23z m1866 -301 c439 -254 550 -321 539 -331 -7
--6 -98 -60 -201 -120 -159 -91 -191 -105 -202 -94 -7 8 -162 199 -345 424
--183 226 -340 419 -349 429 -9 10 -11 17 -5 15 6 -2 259 -148 563 -323z
-m-2926 -697 c105 -61 196 -115 200 -119 7 -6 -384 -1054 -399 -1069 -2 -2 -4
-289 -4 647 0 359 2 652 5 652 3 0 92 -50 198 -111z m3637 -541 c0 -358 -2
--649 -4 -647 -12 11 -407 1061 -402 1066 10 10 390 232 399 232 4 1 7 -292 7
--651z m-1013 68 c-84 -145 -321 -556 -527 -914 -206 -358 -377 -651 -380 -651
--3 0 -231 392 -508 872 -276 480 -514 891 -528 915 l-25 42 1060 0 1060 0
--152 -264z m-1693 -810 c273 -472 496 -859 496 -860 0 -2 -1563 247 -1568 250
--1 0 125 335 280 742 156 408 286 738 290 734 3 -4 230 -393 502 -866z m2370
-115 c152 -398 275 -725 274 -726 -5 -3 -1563 -252 -1566 -250 -2 2 725 1264
-961 1669 33 58 41 67 47 50 4 -10 132 -345 284 -743z m-2285 -1216 c294 -47
-538 -85 543 -85 4 0 8 -106 8 -235 0 -129 -2 -235 -5 -235 -6 0 -1116 639
--1125 647 -3 3 6 2 20 -1 14 -3 265 -44 559 -91z m1980 91 c-7 -7 -1102 -638
--1116 -643 -10 -4 -13 41 -13 229 l0 235 208 33 c114 18 365 59 557 90 393 65
-370 61 364 56z`})],-1)]))}const ic=Q(nc,[["render",rc]]),oc={},lc={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"200.000000pt",height:"200.000000pt",viewBox:"0 0 200.000000 200.000000",preserveAspectRatio:"xMidYMid meet"};function cc(e,t){return H(),W("svg",lc,t[0]||(t[0]=[ko(`<g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"><path d="M745 1831 c-126 -42 -236 -79 -244 -82 -11 -4 2 -28 49 -90 35 -46
-65 -86 67 -89 2 -2 49 -3 104 -2 l100 2 79 58 79 57 1 113 c0 61 -1 112 -2
-111 -2 -1 -106 -36 -233 -78z"></path><path d="M1030 1786 l0 -111 73 -53 72 -52 100 0 100 1 52 77 c72 108 72 105
-16 122 -27 7 -113 35 -193 61 -80 26 -162 51 -182 57 l-38 10 0 -112z"></path><path d="M1477 1633 l-59 -87 34 -99 33 -100 78 -58 79 -57 101 36 c56 19 103
-36 105 37 4 3 -302 414 -308 415 -3 0 -31 -39 -63 -87z"></path><path d="M297 1508 c-97 -134 -142 -205 -134 -209 7 -4 53 -19 104 -34 l92
--28 78 56 c66 48 80 63 91 99 7 24 20 67 29 95 l16 53 -58 77 c-32 43 -61 82
--65 86 -4 4 -73 -83 -153 -195z"></path><path d="M950 1607 l-45 -32 48 -3 c26 -2 68 -2 93 0 l46 3 -46 33 c-26 17
--48 32 -49 32 -1 -1 -22 -15 -47 -33z"></path><path d="M919 1510 l-106 -5 -127 -90 -127 -90 -28 -90 c-16 -49 -39 -123 -51
--163 l-23 -72 37 -118 c59 -185 63 -194 108 -227 91 -66 136 -98 192 -136 l59
--39 152 0 153 0 144 107 145 106 48 155 49 154 -54 160 -53 160 -71 53 c-39
-28 -101 73 -138 98 -76 51 -56 49 -309 37z"></path><path d="M1325 1462 c44 -32 81 -58 82 -57 2 1 -6 26 -16 56 l-19 54 -64 3
--63 3 80 -59z"></path><path d="M615 1498 c-3 -7 -11 -32 -20 -56 l-15 -44 68 48 c93 66 93 64 29 64
--37 0 -59 -4 -62 -12z"></path><path d="M438 1236 l-45 -35 16 -50 c9 -28 19 -51 22 -51 3 0 17 38 31 85 14
-47 24 85 23 85 -1 0 -22 -15 -47 -34z"></path><path d="M1510 1267 c0 -4 48 -146 56 -167 4 -10 10 -4 19 20 28 80 29 75 -25
-114 -27 20 -50 35 -50 33z"></path><path d="M1761 1224 c-51 -18 -97 -36 -101 -41 -4 -4 -20 -45 -35 -90 l-26
--83 28 -91 c15 -50 33 -93 38 -94 56 -17 156 -46 178 -51 l28 -6 -2 178 c-2
-99 -5 209 -8 245 l-6 67 -94 -34z"></path><path d="M136 998 c4 -139 7 -254 8 -255 1 -1 46 12 99 29 107 36 97 25 139
-158 l24 76 -28 90 -28 91 -97 32 c-54 17 -104 31 -111 31 -11 0 -12 -48 -6
--252z"></path><path d="M416 871 c-9 -27 -16 -54 -16 -60 0 -9 81 -73 86 -68 2 2 -9 42 -25
-91 l-28 87 -17 -50z"></path><path d="M1541 838 c-13 -40 -26 -79 -29 -87 -3 -8 17 3 45 24 l50 37 -15 49
-c-9 27 -19 49 -22 49 -3 0 -17 -33 -29 -72z"></path><path d="M1559 714 l-74 -55 -32 -96 c-18 -53 -29 -101 -25 -107 4 -7 33 -46
-66 -89 l58 -77 33 43 c62 81 265 370 265 376 0 7 -184 61 -206 61 -6 0 -44
--25 -85 -56z"></path><path d="M258 723 l-98 -35 37 -52 c169 -233 257 -346 263 -339 4 4 33 43 64
-86 l57 78 -30 92 -29 91 -79 58 c-43 32 -80 57 -83 57 -3 0 -49 -16 -102 -36z"></path><path d="M1338 552 c-43 -31 -77 -61 -78 -65 0 -4 26 -7 57 -5 l58 3 22 63
-c12 34 21 62 20 62 -1 0 -37 -26 -79 -58z"></path><path d="M595 569 c26 -85 30 -89 89 -89 31 0 56 3 56 8 0 6 -120 91 -144 101
--4 2 -5 -7 -1 -20z"></path><path d="M557 351 l-65 -89 41 -15 c23 -8 76 -25 117 -37 41 -12 122 -37 180
--56 163 -51 156 -51 154 -12 -1 18 -2 65 -3 105 l-1 72 -85 61 -85 60 -94 0
--94 0 -65 -89z"></path><path d="M916 432 c5 -4 26 -21 47 -36 43 -31 51 -30 112 20 l30 24 -99 0
-c-55 0 -96 -4 -90 -8z"></path><path d="M1109 380 l-76 -59 4 -103 c2 -56 5 -103 7 -105 4 -4 450 139 460
-148 5 4 -21 46 -58 93 l-67 86 -97 -1 -97 0 -76 -59z"></path></g>`,1)]))}const fc=Q(oc,[["render",cc]]),uc={class:"dices"},ac={class:"dices__content"},dc={class:"dices__name"},hc={__name:"DicesView",emits:["changeDices"],setup(e,{emit:t}){const n=t,s={d4:zl,d6:Bl,d8:Jl,d10:Xl,d12:tc,d20:ic,d100:fc},r=nt([{id:0,value:0,name:"d4",number:4},{id:1,value:0,name:"d6",number:6},{id:2,value:0,name:"d8",number:8},{id:3,value:0,name:"d10",number:10},{id:4,value:0,name:"d12",number:12},{id:5,value:0,name:"d20",number:20},{id:6,value:0,name:"d100",number:100}]);return St(()=>r,i=>{n("changeDices",i.value)},{deep:!0}),(i,o)=>(H(),W("div",uc,[o[0]||(o[0]=P("h2",{class:"dices__header"},"Дайсы",-1)),P("div",ac,[(H(!0),W(ue,null,pn(r.value,l=>(H(),W("div",{class:"dices__row",key:l.id},[(H(),ft(ao(s[l.name]),{class:"dices__image"})),P("span",dc,xe(l.name),1),Z(Qr,{modelValue:l.value,"onUpdate:modelValue":f=>l.value=f},null,8,["modelValue","onUpdate:modelValue"])]))),128))])]))}},pc=Q(hc,[["__scopeId","data-v-b22502e6"]]),gc={class:"dice-input"},mc={class:"dice-input__label"},_c={__name:"DiceInput",props:rs({label:{type:String,default:""}},{modelValue:{},modelModifiers:{}}),emits:["update:modelValue"],setup(e){const t=e,n=ls(e,"modelValue");return(s,r)=>(H(),W("div",gc,[P("label",mc,[cs(xe(t.label)+" ",1),ts(P("input",{class:"dice-input__input",type:"text","onUpdate:modelValue":r[0]||(r[0]=i=>n.value=i)},null,512),[[Xr,n.value]])])]))}},bc=Q(_c,[["__scopeId","data-v-d44fdc5c"]]),xc={},yc={version:"1.1",id:"Layer_1",xmlns:"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink",x:"0px",y:"0px",width:"100%",viewBox:"0 0 512 512","enable-background":"new 0 0 512 512","xml:space":"preserve"};function vc(e,t){return H(),W("svg",yc,t[0]||(t[0]=[P("path",{fill:"currentColor",opacity:"0.000000",stroke:"none",d:`
-M283.000000,513.000000 
-	C188.689560,513.000000 94.879120,513.000000 1.034338,513.000000 
-	C1.034338,342.397858 1.034338,171.795731 1.034338,1.096792 
-	C171.560455,1.096792 342.121002,1.096792 512.840759,1.096792 
-	C512.840759,171.666550 512.840759,342.333252 512.840759,513.000000 
-	C436.462372,513.000000 359.981171,513.000000 283.000000,513.000000 
-M340.985260,181.485229 
-	C301.195801,221.275711 261.406342,261.066193 221.225159,301.248413 
-	C219.764221,299.591675 218.622986,298.148010 217.331192,296.854706 
-	C191.542435,271.035278 165.737350,245.232193 139.933014,219.428345 
-	C133.068924,212.564377 124.903740,212.605759 117.956657,219.540955 
-	C112.649986,224.838593 107.348312,230.141266 102.057014,235.454254 
-	C95.695297,241.842072 95.753670,250.246216 102.218002,256.712494 
-	C137.796371,292.301605 173.539627,327.728363 208.835846,363.595093 
-	C216.394501,371.275909 226.642502,372.047241 235.083817,363.559357 
-	C292.894470,305.429871 350.940338,247.534225 408.910431,189.563293 
-	C409.970795,188.502899 411.033569,187.444901 412.092255,186.382874 
-	C416.414612,182.047043 418.789703,173.191757 413.616394,167.190659 
-	C408.424500,161.167969 402.836151,155.474380 397.241119,149.814926 
-	C389.335083,141.817871 380.601959,141.905273 372.597137,149.885437 
-	C362.212585,160.238052 351.853790,170.616501 340.985260,181.485229 
-z`},null,-1),P("path",{fill:"#48B02C",opacity:"1.000000",stroke:"none",d:`
-M341.234589,181.234528 
-	C351.853790,170.616501 362.212585,160.238052 372.597137,149.885437 
-	C380.601959,141.905273 389.335083,141.817871 397.241119,149.814926 
-	C402.836151,155.474380 408.424500,161.167969 413.616394,167.190659 
-	C418.789703,173.191757 416.414612,182.047043 412.092255,186.382874 
-	C411.033569,187.444901 409.970795,188.502899 408.910431,189.563293 
-	C350.940338,247.534225 292.894470,305.429871 235.083817,363.559357 
-	C226.642502,372.047241 216.394501,371.275909 208.835846,363.595093 
-	C173.539627,327.728363 137.796371,292.301605 102.218002,256.712494 
-	C95.753670,250.246216 95.695297,241.842072 102.057014,235.454254 
-	C107.348312,230.141266 112.649986,224.838593 117.956657,219.540955 
-	C124.903740,212.605759 133.068924,212.564377 139.933014,219.428345 
-	C165.737350,245.232193 191.542435,271.035278 217.331192,296.854706 
-	C218.622986,298.148010 219.764221,299.591675 221.225159,301.248413 
-	C261.406342,261.066193 301.195801,221.275711 341.234589,181.234528 
-z`},null,-1)]))}const wc=Q(xc,[["render",vc]]),Cc={class:"dice-checkbox"},Sc={class:"dice-checkbox__label"},Mc=["for"],Tc=["name","id"],Oc={__name:"DiceCheckbox",props:rs({label:{type:String,default:""},name:{type:String,default:""}},{modelValue:{},modelModifiers:{}}),emits:["update:modelValue"],setup(e){const t=e,n=ls(e,"modelValue");return(s,r)=>(H(),W("div",Cc,[P("span",Sc,xe(t.label),1),P("label",{class:cn(["dice-checkbox__name",{_disabled:!t.name}]),for:t.name},[n.value?(H(),ft(wc,{key:0})):zn("",!0)],10,Mc),ts(P("input",{type:"checkbox",name:t.name,id:t.name,"onUpdate:modelValue":r[0]||(r[0]=i=>n.value=i)},null,8,Tc),[[ul,!1],[Ml,n.value]])]))}},Ec=Q(Oc,[["__scopeId","data-v-e4ba4092"]]),Ic={class:"stats"},Ac={class:"stats__content"},Rc={__name:"StatsView",emits:["changeStats"],setup(e,{emit:t}){const n=t,s=nt([{id:0,name:"",value:0,isCheck:!1},{id:1,name:"",value:0,isCheck:!1},{id:2,name:"",value:0,isCheck:!1},{id:3,name:"",value:0,isCheck:!1},{id:4,name:"",value:0,isCheck:!1},{id:5,name:"",value:0,isCheck:!1},{id:6,name:"",value:0,isCheck:!1},{id:7,name:"",value:0,isCheck:!1},{id:8,name:"",value:0,isCheck:!1},{id:9,name:"",value:0,isCheck:!1}]);ss(()=>{try{JSON.parse(localStorage.getItem("stats"))&&(s.value=JSON.parse(localStorage.getItem("stats")))}catch(i){console.log(i)}}),St(()=>s,i=>{n("changeStats",i.value),i&&localStorage.setItem("stats",JSON.stringify(s.value))},{deep:!0});function r(i){i.name||(i.isCheck=!1)}return(i,o)=>(H(),W("div",Ic,[o[0]||(o[0]=P("h2",{class:"stats__header"},"Статы",-1)),P("div",Ac,[(H(!0),W(ue,null,pn(s.value,l=>(H(),W("div",{class:"stats__row",key:l.id},[Z(bc,{modelValue:l.name,"onUpdate:modelValue":f=>l.name=f,onInput:f=>r(l),label:"Название"},null,8,["modelValue","onUpdate:modelValue","onInput"]),Z(Qr,{modelValue:l.value,"onUpdate:modelValue":f=>l.value=f,name:l.name,label:"Значение"},null,8,["modelValue","onUpdate:modelValue","name"]),Z(Ec,{modelValue:l.isCheck,"onUpdate:modelValue":f=>l.isCheck=f,name:l.name,label:"Учесть"},null,8,["modelValue","onUpdate:modelValue","name"])]))),128))])]))}},$c=Q(Rc,[["__scopeId","data-v-22d2f5d6"]]),Pc={class:"result"},Dc={class:"result__header"},Vc={class:"result__value"},Fc={__name:"ResultItem",props:{name:{type:String,required:!0},value:{type:Number,required:!0}},setup(e){const t=e;return(n,s)=>(H(),W("div",Pc,[P("span",Dc,xe(t.name),1),P("span",Vc,xe(t.value),1)]))}},Nc=Q(Fc,[["__scopeId","data-v-baac8be0"]]),Hc={class:"result-view"},zc={class:"result-view__header"},jc={class:"result-view__content"},Lc={__name:"ResultView",props:{sumStats:{type:Number,default:0},result:{type:Array,required:!0}},setup(e){const t=e,n=us(()=>{let s=0;return t.result.forEach(r=>{s+=r.value}),s});return(s,r)=>(H(),W("div",Hc,[P("h3",zc," Результат броска: "+xe(n.value)+" + "+xe(t.sumStats)+" ("+xe(n.value+t.sumStats)+") ",1),P("div",jc,[(H(!0),W(ue,null,pn(t.result,i=>(H(),ft(Nc,{key:i.id,name:i.name,value:i.value},null,8,["name","value"]))),128))])]))}},Ws=Q(Lc,[["__scopeId","data-v-8d6ee1d0"]]),Uc={class:"dice-button"},Bc={class:"dice-button__button"},Kc={__name:"DiceButton",props:{text:{type:String,default:""}},setup(e){const t=e;return(n,s)=>(H(),W("div",Uc,[P("button",Bc,xe(t.text),1)]))}},Wc=Q(Kc,[["__scopeId","data-v-d2f508ab"]]),kc={class:"dice-app__content"},Jc={class:"dice-app__dices-wrapper"},qc={key:0,class:"dice-app__result"},Yc={class:"dice-app__result-wrapper"},Gc={__name:"App",setup(e){const t=nt([]),n=nt([]),s=nt([]),r=nt([]),i=us(()=>{let m=0;return n.value.forEach(y=>{y.isCheck&&(m+=y.value)}),m});ss(()=>{p()});function o(m){t.value=m}function l(m){n.value=m}function f(){s.value=[],t.value.forEach(m=>{if(m.value>0)for(let y=0;y<m.value;y++){const A=d(1,m.number);s.value.push({id:Date.now()+Math.random(),value:A,name:m.name,number:m.number,mod:i.value})}}),p(),a()}function d(m,y){return m=Math.ceil(m),y=Math.floor(y),Math.floor(Math.random()*(y-m+1))+m}function a(){if(s.value.length)try{const m=JSON.parse(localStorage.getItem("result"));m?(m.length>10&&m.shift(),m.push(s.value),localStorage.setItem("result",JSON.stringify(m))):localStorage.setItem("result",JSON.stringify([s.value]))}catch(m){console.log(m)}}function p(){try{JSON.parse(localStorage.getItem("result"))&&(r.value=JSON.parse(localStorage.getItem("result")))}catch(m){console.log(m)}}return(m,y)=>(H(),W(ue,null,[y[1]||(y[1]=P("header",null,[P("h1",{class:"dice-app__header"},"Добро пожаловать в Dice App")],-1)),P("main",kc,[P("div",Jc,[Z(pc,{onChangeDices:o}),Z(Wc,{class:"dice-app__button",text:"Бросок",onClick:f}),s.value.length?(H(),ft(Ws,{key:0,"sum-stats":i.value,result:s.value},null,8,["sum-stats","result"])):zn("",!0)]),Z($c,{onChangeStats:l})]),r.value.length?(H(),W("div",qc,[y[0]||(y[0]=P("h2",{class:"dice-app__result-h"},"Прошлые броски",-1)),P("div",Yc,[(H(!0),W(ue,null,pn(r.value,(A,R)=>(H(),ft(Ws,{class:"dice-app__result-item",key:R,"sum-stats":A[0].mod,result:A},null,8,["sum-stats","result"]))),128))])])):zn("",!0)],64))}},Xc=Q(Gc,[["__scopeId","data-v-b676412e"]]);Il(Xc).mount("#app");
+**/let Ln;const $s=typeof window<"u"&&window.trustedTypes;if($s)try{Ln=$s.createPolicy("vue",{createHTML:e=>e})}catch{}const Yr=Ln?e=>Ln.createHTML(e):e=>e,il="http://www.w3.org/2000/svg",ol="http://www.w3.org/1998/Math/MathML",Pe=typeof document<"u"?document:null,Ps=Pe&&Pe.createElement("template"),ll={insert:(e,t,n)=>{t.insertBefore(e,n||null)},remove:e=>{const t=e.parentNode;t&&t.removeChild(e)},createElement:(e,t,n,s)=>{const r=t==="svg"?Pe.createElementNS(il,e):t==="mathml"?Pe.createElementNS(ol,e):n?Pe.createElement(e,{is:n}):Pe.createElement(e);return e==="select"&&s&&s.multiple!=null&&r.setAttribute("multiple",s.multiple),r},createText:e=>Pe.createTextNode(e),createComment:e=>Pe.createComment(e),setText:(e,t)=>{e.nodeValue=t},setElementText:(e,t)=>{e.textContent=t},parentNode:e=>e.parentNode,nextSibling:e=>e.nextSibling,querySelector:e=>Pe.querySelector(e),setScopeId(e,t){e.setAttribute(t,"")},insertStaticContent(e,t,n,s,r,i){const o=n?n.previousSibling:t.lastChild;if(r&&(r===i||r.nextSibling))for(;t.insertBefore(r.cloneNode(!0),n),!(r===i||!(r=r.nextSibling)););else{Ps.innerHTML=Yr(s==="svg"?`<svg>${e}</svg>`:s==="mathml"?`<math>${e}</math>`:e);const l=Ps.content;if(s==="svg"||s==="mathml"){const f=l.firstChild;for(;f.firstChild;)l.appendChild(f.firstChild);l.removeChild(f)}t.insertBefore(l,n)}return[o?o.nextSibling:t.firstChild,n?n.previousSibling:t.lastChild]}},cl=Symbol("_vtc");function fl(e,t,n){const s=e[cl];s&&(t=(t?[t,...s]:[...s]).join(" ")),t==null?e.removeAttribute("class"):n?e.setAttribute("class",t):e.className=t}const en=Symbol("_vod"),Gr=Symbol("_vsh"),ul={beforeMount(e,{value:t},{transition:n}){e[en]=e.style.display==="none"?"":e.style.display,n&&t?n.beforeEnter(e):_t(e,t)},mounted(e,{value:t},{transition:n}){n&&t&&n.enter(e)},updated(e,{value:t,oldValue:n},{transition:s}){!t!=!n&&(s?t?(s.beforeEnter(e),_t(e,!0),s.enter(e)):s.leave(e,()=>{_t(e,!1)}):_t(e,t))},beforeUnmount(e,{value:t}){_t(e,t)}};function _t(e,t){e.style.display=t?e[en]:"none",e[Gr]=!t}const al=Symbol(""),dl=/(^|;)\s*display\s*:/;function hl(e,t,n){const s=e.style,r=Y(n);let i=!1;if(n&&!r){if(t)if(Y(t))for(const o of t.split(";")){const l=o.slice(0,o.indexOf(":")).trim();n[l]==null&&kt(s,l,"")}else for(const o in t)n[o]==null&&kt(s,o,"");for(const o in n)o==="display"&&(i=!0),kt(s,o,n[o])}else if(r){if(t!==n){const o=s[al];o&&(n+=";"+o),s.cssText=n,i=dl.test(n)}}else t&&e.removeAttribute("style");en in e&&(e[en]=i?s.display:"",e[Gr]&&(s.display="none"))}const Ds=/\s*!important$/;function kt(e,t,n){if(T(n))n.forEach(s=>kt(e,t,s));else if(n==null&&(n=""),t.startsWith("--"))e.setProperty(t,n);else{const s=pl(e,t);Ds.test(n)?e.setProperty(Le(s),n.replace(Ds,""),"important"):e[s]=n}}const Vs=["Webkit","Moz","ms"],On={};function pl(e,t){const n=On[t];if(n)return n;let s=_e(t);if(s!=="filter"&&s in e)return On[t]=s;s=on(s);for(let r=0;r<Vs.length;r++){const i=Vs[r]+s;if(i in e)return On[t]=i}return t}const Fs="http://www.w3.org/1999/xlink";function Ns(e,t,n,s,r,i=di(t)){s&&t.startsWith("xlink:")?n==null?e.removeAttributeNS(Fs,t.slice(6,t.length)):e.setAttributeNS(Fs,t,n):n==null||i&&!Gs(n)?e.removeAttribute(t):e.setAttribute(t,i?"":Ae(n)?String(n):n)}function Hs(e,t,n,s,r){if(t==="innerHTML"||t==="textContent"){n!=null&&(e[t]=t==="innerHTML"?Yr(n):n);return}const i=e.tagName;if(t==="value"&&i!=="PROGRESS"&&!i.includes("-")){const l=i==="OPTION"?e.getAttribute("value")||"":e.value,f=n==null?e.type==="checkbox"?"on":"":String(n);(l!==f||!("_value"in e))&&(e.value=f),n==null&&e.removeAttribute(t),e._value=n;return}let o=!1;if(n===""||n==null){const l=typeof e[t];l==="boolean"?n=Gs(n):n==null&&l==="string"?(n="",o=!0):l==="number"&&(n=0,o=!0)}try{e[t]=n}catch{}o&&e.removeAttribute(r||t)}function Ge(e,t,n,s){e.addEventListener(t,n,s)}function gl(e,t,n,s){e.removeEventListener(t,n,s)}const zs=Symbol("_vei");function ml(e,t,n,s,r=null){const i=e[zs]||(e[zs]={}),o=i[t];if(s&&o)o.value=s;else{const[l,f]=_l(t);if(s){const d=i[t]=yl(s,r);Ge(e,l,d,f)}else o&&(gl(e,l,o,f),i[t]=void 0)}}const js=/(?:Once|Passive|Capture)$/;function _l(e){let t;if(js.test(e)){t={};let s;for(;s=e.match(js);)e=e.slice(0,e.length-s[0].length),t[s[0].toLowerCase()]=!0}return[e[2]===":"?e.slice(3):Le(e.slice(2)),t]}let En=0;const bl=Promise.resolve(),xl=()=>En||(bl.then(()=>En=0),En=Date.now());function yl(e,t){const n=s=>{if(!s._vts)s._vts=Date.now();else if(s._vts<=n.attached)return;Re(vl(s,n.value),t,5,[s])};return n.value=e,n.attached=xl(),n}function vl(e,t){if(T(t)){const n=e.stopImmediatePropagation;return e.stopImmediatePropagation=()=>{n.call(e),e._stopped=!0},t.map(s=>r=>!r._stopped&&s&&s(r))}else return t}const Ls=e=>e.charCodeAt(0)===111&&e.charCodeAt(1)===110&&e.charCodeAt(2)>96&&e.charCodeAt(2)<123,wl=(e,t,n,s,r,i)=>{const o=r==="svg";t==="class"?fl(e,s,o):t==="style"?hl(e,n,s):nn(t)?Bn(t)||ml(e,t,n,s,i):(t[0]==="."?(t=t.slice(1),!0):t[0]==="^"?(t=t.slice(1),!1):Cl(e,t,s,o))?(Hs(e,t,s),!e.tagName.includes("-")&&(t==="value"||t==="checked"||t==="selected")&&Ns(e,t,s,o,i,t!=="value")):e._isVueCE&&(/[A-Z]/.test(t)||!Y(s))?Hs(e,_e(t),s,i,t):(t==="true-value"?e._trueValue=s:t==="false-value"&&(e._falseValue=s),Ns(e,t,s,o))};function Cl(e,t,n,s){if(s)return!!(t==="innerHTML"||t==="textContent"||t in e&&Ls(t)&&$(n));if(t==="spellcheck"||t==="draggable"||t==="translate"||t==="form"||t==="list"&&e.tagName==="INPUT"||t==="type"&&e.tagName==="TEXTAREA")return!1;if(t==="width"||t==="height"){const r=e.tagName;if(r==="IMG"||r==="VIDEO"||r==="CANVAS"||r==="SOURCE")return!1}return Ls(t)&&Y(n)?!1:t in e}const tn=e=>{const t=e.props["onUpdate:modelValue"]||!1;return T(t)?n=>Ut(t,n):t};function Sl(e){e.target.composing=!0}function Us(e){const t=e.target;t.composing&&(t.composing=!1,t.dispatchEvent(new Event("input")))}const ct=Symbol("_assign"),Xr={created(e,{modifiers:{lazy:t,trim:n,number:s}},r){e[ct]=tn(r);const i=s||r.props&&r.props.type==="number";Ge(e,t?"change":"input",o=>{if(o.target.composing)return;let l=e.value;n&&(l=l.trim()),i&&(l=In(l)),e[ct](l)}),n&&Ge(e,"change",()=>{e.value=e.value.trim()}),t||(Ge(e,"compositionstart",Sl),Ge(e,"compositionend",Us),Ge(e,"change",Us))},mounted(e,{value:t}){e.value=t??""},beforeUpdate(e,{value:t,oldValue:n,modifiers:{lazy:s,trim:r,number:i}},o){if(e[ct]=tn(o),e.composing)return;const l=(i||e.type==="number")&&!/^0\d/.test(e.value)?In(e.value):e.value,f=t??"";l!==f&&(document.activeElement===e&&e.type!=="range"&&(s&&t===n||r&&e.value.trim()===f)||(e.value=f))}},Ml={deep:!0,created(e,t,n){e[ct]=tn(n),Ge(e,"change",()=>{const s=e._modelValue,r=Tl(e),i=e.checked,o=e[ct];if(T(s)){const l=Xs(s,r),f=l!==-1;if(i&&!f)o(s.concat(r));else if(!i&&f){const d=[...s];d.splice(l,1),o(d)}}else if(sn(s)){const l=new Set(s);i?l.add(r):l.delete(r),o(l)}else o(Zr(e,i))})},mounted:Bs,beforeUpdate(e,t,n){e[ct]=tn(n),Bs(e,t,n)}};function Bs(e,{value:t,oldValue:n},s){e._modelValue=t;let r;if(T(t))r=Xs(t,s.props.value)>-1;else if(sn(t))r=t.has(s.props.value);else{if(t===n)return;r=fn(t,Zr(e,!0))}e.checked!==r&&(e.checked=r)}function Tl(e){return"_value"in e?e._value:e.value}function Zr(e,t){const n=t?"_trueValue":"_falseValue";return n in e?e[n]:t}const Ol=re({patchProp:wl},ll);let Ks;function El(){return Ks||(Ks=Io(Ol))}const Il=(...e)=>{const t=El().createApp(...e),{mount:n}=t;return t.mount=s=>{const r=Rl(s);if(!r)return;const i=t._component;!$(i)&&!i.render&&!i.template&&(i.template=r.innerHTML),r.nodeType===1&&(r.textContent="");const o=n(r,!1,Al(r));return r instanceof Element&&(r.removeAttribute("v-cloak"),r.setAttribute("data-v-app","")),o},t};function Al(e){if(e instanceof SVGElement)return"svg";if(typeof MathMLElement=="function"&&e instanceof MathMLElement)return"mathml"}function Rl(e){return Y(e)?document.querySelector(e):e}const Q=(e,t)=>{const n=e.__vccOpts||e;for(const[s,r]of t)n[s]=r;return n},$l={class:"dice-input-number"},Pl={class:"dice-input-number__label"},Dl=["name"],Vl={__name:"DiceInputNumber",props:rs({label:{type:String,default:""},name:{type:String,default:""}},{modelValue:{},modelModifiers:{}}),emits:["update:modelValue"],setup(e){const t=e,n=ls(e,"modelValue");function s(r){r.target.value>100&&(n.value=100)}return(r,i)=>(H(),W("div",$l,[P("label",Pl,[cs(xe(t.label)+" ",1),ts(P("input",{class:"dice-input-number__input",type:"number",name:t.name,min:"0",max:"100","onUpdate:modelValue":i[0]||(i[0]=o=>n.value=o),onInput:s},null,40,Dl),[[Xr,n.value]])])]))}},Qr=Q(Vl,[["__scopeId","data-v-b6ee780d"]]),Fl={},Nl={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function Hl(e,t){return H(),W("svg",Nl,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M2421 5105 c-93 -21 -216 -85 -289 -152 -54 -49 -229 -299 -1097\r
+-1568 -954 -1396 -1031 -1511 -1016 -1526 29 -29 2531 -1849 2542 -1849 10 0\r
+2512 1820 2540 1849 15 15 -61 129 -1016 1526 -849 1241 -1045 1520 -1096\r
+1568 -148 136 -367 195 -568 152z m-73 -3450 l-3 -967 -877 639 c-500 363\r
+-875 643 -873 650 2 7 397 587 877 1289 l873 1277 3 -961 c1 -528 1 -1395 0\r
+-1927z m1307 1602 c476 -697 868 -1273 870 -1280 2 -7 -378 -290 -867 -647\r
+-480 -349 -875 -636 -880 -638 -4 -2 -8 864 -8 1924 0 1145 4 1924 9 1919 5\r
+-6 399 -581 876 -1278z`})],-1)]))}const zl=Q(Fl,[["render",Hl]]),jl={},Ll={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function Ul(e,t){return H(),W("svg",Ll,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M2425 5105 c-33 -7 -86 -24 -117 -38 -32 -14 -516 -301 -1078 -638\r
+l-1020 -612 0 -1257 0 -1257 1020 -612 c562 -337 1045 -624 1075 -637 152 -70\r
+358 -70 510 0 30 13 513 300 1075 637 l1020 612 0 1257 0 1257 -1020 612\r
+c-562 337 -1045 624 -1075 637 -111 51 -266 67 -390 39z m1027 -910 c450 -270\r
+817 -493 818 -496 0 -3 -385 -237 -855 -519 l-855 -513 -855 513 c-470 282\r
+-855 516 -855 519 1 6 1497 906 1603 964 45 25 61 28 117 25 l65 -4 817 -489z\r
+m-1919 -1410 l817 -490 0 -888 c0 -489 -3 -886 -7 -884 -5 2 -389 233 -855\r
+512 l-848 508 0 889 0 889 38 -23 c22 -13 406 -243 855 -513z m2947 -354 l0\r
+-888 -847 -508 c-467 -279 -851 -510 -855 -512 -5 -2 -8 395 -8 884 l0 888\r
+853 512 c468 282 853 512 855 513 1 0 2 -400 2 -889z`})],-1)]))}const Bl=Q(jl,[["render",Ul]]),Kl={},Wl={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function kl(e,t){return H(),W("svg",Wl,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M2468 5109 c-87 -12 -187 -51 -263 -100 -59 -38 -201 -195 -1131\r
+-1244 -585 -660 -1064 -1202 -1064 -1205 0 -11 2082 -2356 2133 -2403 66 -61\r
+190 -123 287 -143 130 -28 299 -6 415 53 108 56 149 100 1204 1292 581 656\r
+1056 1197 1056 1201 0 4 -476 545 -1058 1203 -1141 1290 -1108 1255 -1258\r
+1311 -61 23 -194 47 -242 45 -12 -1 -48 -5 -79 -10z m-118 -1729 c0 -643 -4\r
+-1170 -9 -1170 -11 0 -1634 480 -1639 485 -5 5 1631 1854 1641 1855 4 0 7\r
+-526 7 -1170z m1253 242 c686 -776 816 -928 800 -934 -28 -12 -1612 -478\r
+-1623 -478 -7 0 -10 412 -10 1170 0 644 3 1170 8 1169 4 0 375 -417 825 -927z\r
+m-2033 -1632 c338 -100 652 -192 698 -206 l82 -25 0 -595 c0 -328 -4 -594 -8\r
+-592 -10 3 -1403 1575 -1416 1597 -6 10 -4 12 10 8 11 -3 296 -87 634 -187z\r
+m2619 173 c-46 -57 -1404 -1589 -1411 -1591 -4 -2 -8 264 -8 592 l0 595 53 16\r
+c28 8 347 102 707 209 360 107 659 195 664 195 5 1 2 -7 -5 -16z`})],-1)]))}const Jl=Q(Kl,[["render",kl]]),ql={},Yl={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function Gl(e,t){return H(),W("svg",Yl,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M2427 5110 c-80 -14 -188 -50 -257 -86 -156 -82 -156 -81 -978 -1064\r
+-425 -509 -793 -956 -817 -995 -239 -380 -211 -850 74 -1228 39 -53 1514\r
+-1497 1589 -1557 196 -156 479 -216 729 -155 86 22 233 90 299 141 79 60 1567\r
+1520 1615 1583 100 136 165 275 201 434 27 120 29 306 4 427 -23 107 -85 265\r
+-139 352 -67 109 -1570 1902 -1646 1964 -181 150 -446 222 -674 184z m-566\r
+-1504 c-170 -466 -311 -850 -314 -852 -2 -3 -191 -36 -418 -74 -228 -38 -424\r
+-71 -435 -73 -20 -3 -21 -1 -13 22 28 79 136 215 779 985 388 464 706 843 707\r
+842 2 -1 -136 -384 -306 -850z m1809 -1 c535 -641 709 -857 738 -912 20 -39\r
+33 -75 30 -79 -7 -6 -855 130 -864 139 -3 3 -136 364 -295 803 -159 440 -299\r
+824 -310 854 -11 30 -16 51 -10 45 5 -5 325 -388 711 -850z m-810 -146 c162\r
+-446 296 -814 297 -818 2 -5 -547 -423 -583 -444 -10 -6 -102 57 -314 215\r
+-165 123 -298 226 -297 229 37 112 594 1629 597 1629 3 0 138 -365 300 -811z\r
+m-853 -1389 l342 -255 1 -662 c0 -427 -3 -663 -10 -663 -5 0 -42 30 -82 68\r
+-139 130 -1443 1405 -1471 1438 -39 47 -97 144 -97 163 0 13 83 30 458 93 251\r
+42 471 76 487 75 22 -2 124 -73 372 -257z m1951 184 c251 -41 463 -77 470 -79\r
+15 -6 -24 -88 -73 -152 -18 -23 -167 -174 -331 -335 -165 -161 -502 -491 -750\r
+-734 -247 -243 -460 -446 -472 -453 l-22 -12 0 664 0 665 342 256 c188 141\r
+350 256 360 256 10 0 224 -34 476 -76z`})],-1)]))}const Xl=Q(ql,[["render",Gl]]),Zl={},Ql={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function ec(e,t){return H(),W("svg",Ql,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M2035 5113 c-200 -25 -300 -70 -745 -336 -428 -256 -486 -295 -580\r
+-394 -92 -96 -110 -122 -367 -553 -248 -416 -271 -460 -311 -608 l-27 -97 0\r
+-565 0 -565 27 -97 c40 -148 63 -192 311 -608 256 -428 295 -486 394 -580 95\r
+-91 121 -109 531 -354 402 -241 487 -285 630 -324 l97 -27 565 0 565 0 100 28\r
+c141 38 251 95 645 332 407 245 412 248 507 338 102 98 141 154 387 565 241\r
+402 285 487 324 630 l27 97 0 565 0 565 -27 97 c-15 53 -44 135 -66 182 -48\r
+101 -454 783 -524 877 -53 74 -171 189 -239 236 -87 60 -736 447 -819 489 -97\r
+49 -222 88 -334 103 -72 10 -996 14 -1071 4z m1138 -454 c65 -26 527 -295 527\r
+-308 0 -3 -256 -70 -570 -149 l-570 -142 -570 142 c-314 79 -570 146 -570 149\r
+0 6 404 251 468 283 19 10 66 26 105 36 67 18 108 19 592 17 l520 -2 68 -26z\r
+m-1518 -812 l690 -173 3 -490 2 -489 -506 -253 c-417 -208 -509 -251 -520\r
+-240 -7 7 -200 238 -428 513 -274 329 -414 505 -411 515 9 24 469 790 475 790\r
+3 0 316 -78 695 -173z m2742 -214 c128 -214 235 -395 238 -403 3 -10 -137\r
+-186 -411 -515 -228 -275 -421 -506 -428 -513 -11 -11 -103 32 -520 240 l-506\r
+253 2 489 3 490 685 172 c377 95 690 173 695 173 6 1 115 -173 242 -386z\r
+m-3620 -1443 l319 -385 202 -539 c111 -297 200 -541 198 -543 -2 -2 -95 51\r
+-206 118 -289 174 -275 157 -568 647 -157 262 -250 427 -264 470 -20 62 -22\r
+90 -26 357 -3 251 -1 288 11 275 8 -8 158 -188 334 -400z m3911 70 c-4 -209\r
+-7 -242 -26 -302 -15 -43 -106 -206 -264 -470 -294 -491 -280 -474 -567 -646\r
+-112 -68 -205 -121 -207 -119 -2 2 87 246 198 543 l202 539 330 398 331 397 3\r
+-52 c2 -29 2 -159 0 -288z m-1623 -192 c278 -139 505 -255 505 -258 0 -3 -116\r
+-313 -258 -690 l-257 -685 -495 0 -495 0 -258 688 c-143 379 -257 690 -255\r
+692 3 3 1000 503 1005 504 2 1 230 -113 508 -251z`})],-1)]))}const tc=Q(Zl,[["render",ec]]),nc={},sc={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"512.000000pt",height:"512.000000pt",viewBox:"0 0 512.000000 512.000000",preserveAspectRatio:"xMidYMid meet"};function rc(e,t){return H(),W("svg",sc,t[0]||(t[0]=[P("g",{transform:"translate(0.000000,512.000000) scale(0.100000,-0.100000)",fill:"currentColor",stroke:"none"},[P("path",{d:`M1450 4480 l-1105 -639 0 -1281 0 -1281 1108 -640 1108 -639 1107\r
+639 1107 639 0 1282 0 1282 -1100 635 c-605 349 -1104 637 -1110 639 -5 1\r
+-507 -285 -1115 -636z m1611 -387 c272 -334 496 -610 497 -615 2 -4 -447 -8\r
+-998 -8 -551 0 -1000 4 -998 8 7 17 991 1222 998 1222 4 0 230 -273 501 -607z\r
+m-1158 284 c-141 -178 -698 -857 -702 -857 -17 1 -391 227 -389 235 2 8 1093\r
+645 1106 645 2 0 -5 -10 -15 -23z m1866 -301 c439 -254 550 -321 539 -331 -7\r
+-6 -98 -60 -201 -120 -159 -91 -191 -105 -202 -94 -7 8 -162 199 -345 424\r
+-183 226 -340 419 -349 429 -9 10 -11 17 -5 15 6 -2 259 -148 563 -323z\r
+m-2926 -697 c105 -61 196 -115 200 -119 7 -6 -384 -1054 -399 -1069 -2 -2 -4\r
+289 -4 647 0 359 2 652 5 652 3 0 92 -50 198 -111z m3637 -541 c0 -358 -2\r
+-649 -4 -647 -12 11 -407 1061 -402 1066 10 10 390 232 399 232 4 1 7 -292 7\r
+-651z m-1013 68 c-84 -145 -321 -556 -527 -914 -206 -358 -377 -651 -380 -651\r
+-3 0 -231 392 -508 872 -276 480 -514 891 -528 915 l-25 42 1060 0 1060 0\r
+-152 -264z m-1693 -810 c273 -472 496 -859 496 -860 0 -2 -1563 247 -1568 250\r
+-1 0 125 335 280 742 156 408 286 738 290 734 3 -4 230 -393 502 -866z m2370\r
+115 c152 -398 275 -725 274 -726 -5 -3 -1563 -252 -1566 -250 -2 2 725 1264\r
+961 1669 33 58 41 67 47 50 4 -10 132 -345 284 -743z m-2285 -1216 c294 -47\r
+538 -85 543 -85 4 0 8 -106 8 -235 0 -129 -2 -235 -5 -235 -6 0 -1116 639\r
+-1125 647 -3 3 6 2 20 -1 14 -3 265 -44 559 -91z m1980 91 c-7 -7 -1102 -638\r
+-1116 -643 -10 -4 -13 41 -13 229 l0 235 208 33 c114 18 365 59 557 90 393 65\r
+370 61 364 56z`})],-1)]))}const ic=Q(nc,[["render",rc]]),oc={},lc={version:"1.0",xmlns:"http://www.w3.org/2000/svg",width:"200.000000pt",height:"200.000000pt",viewBox:"0 0 200.000000 200.000000",preserveAspectRatio:"xMidYMid meet"};function cc(e,t){return H(),W("svg",lc,t[0]||(t[0]=[ko(`<g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"><path d="M745 1831 c-126 -42 -236 -79 -244 -82 -11 -4 2 -28 49 -90 35 -46\r
+65 -86 67 -89 2 -2 49 -3 104 -2 l100 2 79 58 79 57 1 113 c0 61 -1 112 -2\r
+111 -2 -1 -106 -36 -233 -78z"></path><path d="M1030 1786 l0 -111 73 -53 72 -52 100 0 100 1 52 77 c72 108 72 105\r
+16 122 -27 7 -113 35 -193 61 -80 26 -162 51 -182 57 l-38 10 0 -112z"></path><path d="M1477 1633 l-59 -87 34 -99 33 -100 78 -58 79 -57 101 36 c56 19 103\r
+36 105 37 4 3 -302 414 -308 415 -3 0 -31 -39 -63 -87z"></path><path d="M297 1508 c-97 -134 -142 -205 -134 -209 7 -4 53 -19 104 -34 l92\r
+-28 78 56 c66 48 80 63 91 99 7 24 20 67 29 95 l16 53 -58 77 c-32 43 -61 82\r
+-65 86 -4 4 -73 -83 -153 -195z"></path><path d="M950 1607 l-45 -32 48 -3 c26 -2 68 -2 93 0 l46 3 -46 33 c-26 17\r
+-48 32 -49 32 -1 -1 -22 -15 -47 -33z"></path><path d="M919 1510 l-106 -5 -127 -90 -127 -90 -28 -90 c-16 -49 -39 -123 -51\r
+-163 l-23 -72 37 -118 c59 -185 63 -194 108 -227 91 -66 136 -98 192 -136 l59\r
+-39 152 0 153 0 144 107 145 106 48 155 49 154 -54 160 -53 160 -71 53 c-39\r
+28 -101 73 -138 98 -76 51 -56 49 -309 37z"></path><path d="M1325 1462 c44 -32 81 -58 82 -57 2 1 -6 26 -16 56 l-19 54 -64 3\r
+-63 3 80 -59z"></path><path d="M615 1498 c-3 -7 -11 -32 -20 -56 l-15 -44 68 48 c93 66 93 64 29 64\r
+-37 0 -59 -4 -62 -12z"></path><path d="M438 1236 l-45 -35 16 -50 c9 -28 19 -51 22 -51 3 0 17 38 31 85 14\r
+47 24 85 23 85 -1 0 -22 -15 -47 -34z"></path><path d="M1510 1267 c0 -4 48 -146 56 -167 4 -10 10 -4 19 20 28 80 29 75 -25\r
+114 -27 20 -50 35 -50 33z"></path><path d="M1761 1224 c-51 -18 -97 -36 -101 -41 -4 -4 -20 -45 -35 -90 l-26\r
+-83 28 -91 c15 -50 33 -93 38 -94 56 -17 156 -46 178 -51 l28 -6 -2 178 c-2\r
+99 -5 209 -8 245 l-6 67 -94 -34z"></path><path d="M136 998 c4 -139 7 -254 8 -255 1 -1 46 12 99 29 107 36 97 25 139\r
+158 l24 76 -28 90 -28 91 -97 32 c-54 17 -104 31 -111 31 -11 0 -12 -48 -6\r
+-252z"></path><path d="M416 871 c-9 -27 -16 -54 -16 -60 0 -9 81 -73 86 -68 2 2 -9 42 -25\r
+91 l-28 87 -17 -50z"></path><path d="M1541 838 c-13 -40 -26 -79 -29 -87 -3 -8 17 3 45 24 l50 37 -15 49\r
+c-9 27 -19 49 -22 49 -3 0 -17 -33 -29 -72z"></path><path d="M1559 714 l-74 -55 -32 -96 c-18 -53 -29 -101 -25 -107 4 -7 33 -46\r
+66 -89 l58 -77 33 43 c62 81 265 370 265 376 0 7 -184 61 -206 61 -6 0 -44\r
+-25 -85 -56z"></path><path d="M258 723 l-98 -35 37 -52 c169 -233 257 -346 263 -339 4 4 33 43 64\r
+86 l57 78 -30 92 -29 91 -79 58 c-43 32 -80 57 -83 57 -3 0 -49 -16 -102 -36z"></path><path d="M1338 552 c-43 -31 -77 -61 -78 -65 0 -4 26 -7 57 -5 l58 3 22 63\r
+c12 34 21 62 20 62 -1 0 -37 -26 -79 -58z"></path><path d="M595 569 c26 -85 30 -89 89 -89 31 0 56 3 56 8 0 6 -120 91 -144 101\r
+-4 2 -5 -7 -1 -20z"></path><path d="M557 351 l-65 -89 41 -15 c23 -8 76 -25 117 -37 41 -12 122 -37 180\r
+-56 163 -51 156 -51 154 -12 -1 18 -2 65 -3 105 l-1 72 -85 61 -85 60 -94 0\r
+-94 0 -65 -89z"></path><path d="M916 432 c5 -4 26 -21 47 -36 43 -31 51 -30 112 20 l30 24 -99 0\r
+c-55 0 -96 -4 -90 -8z"></path><path d="M1109 380 l-76 -59 4 -103 c2 -56 5 -103 7 -105 4 -4 450 139 460\r
+148 5 4 -21 46 -58 93 l-67 86 -97 -1 -97 0 -76 -59z"></path></g>`,1)]))}const fc=Q(oc,[["render",cc]]),uc={class:"dices"},ac={class:"dices__content"},dc={class:"dices__name"},hc={__name:"DicesView",emits:["changeDices"],setup(e,{emit:t}){const n=t,s={d4:zl,d6:Bl,d8:Jl,d10:Xl,d12:tc,d20:ic,d100:fc},r=nt([{id:0,value:0,name:"d4",number:4},{id:1,value:0,name:"d6",number:6},{id:2,value:0,name:"d8",number:8},{id:3,value:0,name:"d10",number:10},{id:4,value:0,name:"d12",number:12},{id:5,value:0,name:"d20",number:20},{id:6,value:0,name:"d100",number:100}]);return St(()=>r,i=>{n("changeDices",i.value)},{deep:!0}),(i,o)=>(H(),W("div",uc,[o[0]||(o[0]=P("h2",{class:"dices__header"},"Дайсы",-1)),P("div",ac,[(H(!0),W(ue,null,pn(r.value,l=>(H(),W("div",{class:"dices__row",key:l.id},[(H(),ft(ao(s[l.name]),{class:"dices__image"})),P("span",dc,xe(l.name),1),Z(Qr,{modelValue:l.value,"onUpdate:modelValue":f=>l.value=f},null,8,["modelValue","onUpdate:modelValue"])]))),128))])]))}},pc=Q(hc,[["__scopeId","data-v-7d04b6a0"]]),gc={class:"dice-input"},mc={class:"dice-input__label"},_c={__name:"DiceInput",props:rs({label:{type:String,default:""}},{modelValue:{},modelModifiers:{}}),emits:["update:modelValue"],setup(e){const t=e,n=ls(e,"modelValue");return(s,r)=>(H(),W("div",gc,[P("label",mc,[cs(xe(t.label)+" ",1),ts(P("input",{class:"dice-input__input",type:"text","onUpdate:modelValue":r[0]||(r[0]=i=>n.value=i)},null,512),[[Xr,n.value]])])]))}},bc=Q(_c,[["__scopeId","data-v-6821fe9d"]]),xc={},yc={version:"1.1",id:"Layer_1",xmlns:"http://www.w3.org/2000/svg","xmlns:xlink":"http://www.w3.org/1999/xlink",x:"0px",y:"0px",width:"100%",viewBox:"0 0 512 512","enable-background":"new 0 0 512 512","xml:space":"preserve"};function vc(e,t){return H(),W("svg",yc,t[0]||(t[0]=[P("path",{fill:"currentColor",opacity:"0.000000",stroke:"none",d:`\r
+M283.000000,513.000000 \r
+	C188.689560,513.000000 94.879120,513.000000 1.034338,513.000000 \r
+	C1.034338,342.397858 1.034338,171.795731 1.034338,1.096792 \r
+	C171.560455,1.096792 342.121002,1.096792 512.840759,1.096792 \r
+	C512.840759,171.666550 512.840759,342.333252 512.840759,513.000000 \r
+	C436.462372,513.000000 359.981171,513.000000 283.000000,513.000000 \r
+M340.985260,181.485229 \r
+	C301.195801,221.275711 261.406342,261.066193 221.225159,301.248413 \r
+	C219.764221,299.591675 218.622986,298.148010 217.331192,296.854706 \r
+	C191.542435,271.035278 165.737350,245.232193 139.933014,219.428345 \r
+	C133.068924,212.564377 124.903740,212.605759 117.956657,219.540955 \r
+	C112.649986,224.838593 107.348312,230.141266 102.057014,235.454254 \r
+	C95.695297,241.842072 95.753670,250.246216 102.218002,256.712494 \r
+	C137.796371,292.301605 173.539627,327.728363 208.835846,363.595093 \r
+	C216.394501,371.275909 226.642502,372.047241 235.083817,363.559357 \r
+	C292.894470,305.429871 350.940338,247.534225 408.910431,189.563293 \r
+	C409.970795,188.502899 411.033569,187.444901 412.092255,186.382874 \r
+	C416.414612,182.047043 418.789703,173.191757 413.616394,167.190659 \r
+	C408.424500,161.167969 402.836151,155.474380 397.241119,149.814926 \r
+	C389.335083,141.817871 380.601959,141.905273 372.597137,149.885437 \r
+	C362.212585,160.238052 351.853790,170.616501 340.985260,181.485229 \r
+z`},null,-1),P("path",{fill:"#48B02C",opacity:"1.000000",stroke:"none",d:`\r
+M341.234589,181.234528 \r
+	C351.853790,170.616501 362.212585,160.238052 372.597137,149.885437 \r
+	C380.601959,141.905273 389.335083,141.817871 397.241119,149.814926 \r
+	C402.836151,155.474380 408.424500,161.167969 413.616394,167.190659 \r
+	C418.789703,173.191757 416.414612,182.047043 412.092255,186.382874 \r
+	C411.033569,187.444901 409.970795,188.502899 408.910431,189.563293 \r
+	C350.940338,247.534225 292.894470,305.429871 235.083817,363.559357 \r
+	C226.642502,372.047241 216.394501,371.275909 208.835846,363.595093 \r
+	C173.539627,327.728363 137.796371,292.301605 102.218002,256.712494 \r
+	C95.753670,250.246216 95.695297,241.842072 102.057014,235.454254 \r
+	C107.348312,230.141266 112.649986,224.838593 117.956657,219.540955 \r
+	C124.903740,212.605759 133.068924,212.564377 139.933014,219.428345 \r
+	C165.737350,245.232193 191.542435,271.035278 217.331192,296.854706 \r
+	C218.622986,298.148010 219.764221,299.591675 221.225159,301.248413 \r
+	C261.406342,261.066193 301.195801,221.275711 341.234589,181.234528 \r
+z`},null,-1)]))}const wc=Q(xc,[["render",vc]]),Cc={class:"dice-checkbox"},Sc={class:"dice-checkbox__label"},Mc=["for"],Tc=["name","id"],Oc={__name:"DiceCheckbox",props:rs({label:{type:String,default:""},name:{type:String,default:""}},{modelValue:{},modelModifiers:{}}),emits:["update:modelValue"],setup(e){const t=e,n=ls(e,"modelValue");return(s,r)=>(H(),W("div",Cc,[P("span",Sc,xe(t.label),1),P("label",{class:cn(["dice-checkbox__name",{_disabled:!t.name}]),for:t.name},[n.value?(H(),ft(wc,{key:0})):zn("",!0)],10,Mc),ts(P("input",{type:"checkbox",name:t.name,id:t.name,"onUpdate:modelValue":r[0]||(r[0]=i=>n.value=i)},null,8,Tc),[[ul,!1],[Ml,n.value]])]))}},Ec=Q(Oc,[["__scopeId","data-v-3aea50dc"]]),Ic={class:"stats"},Ac={class:"stats__content"},Rc={__name:"StatsView",emits:["changeStats"],setup(e,{emit:t}){const n=t,s=nt([{id:0,name:"",value:0,isCheck:!1},{id:1,name:"",value:0,isCheck:!1},{id:2,name:"",value:0,isCheck:!1},{id:3,name:"",value:0,isCheck:!1},{id:4,name:"",value:0,isCheck:!1},{id:5,name:"",value:0,isCheck:!1},{id:6,name:"",value:0,isCheck:!1},{id:7,name:"",value:0,isCheck:!1},{id:8,name:"",value:0,isCheck:!1},{id:9,name:"",value:0,isCheck:!1}]);ss(()=>{try{JSON.parse(localStorage.getItem("stats"))&&(s.value=JSON.parse(localStorage.getItem("stats")))}catch(i){console.log(i)}}),St(()=>s,i=>{n("changeStats",i.value),i&&localStorage.setItem("stats",JSON.stringify(s.value))},{deep:!0});function r(i){i.name||(i.isCheck=!1)}return(i,o)=>(H(),W("div",Ic,[o[0]||(o[0]=P("h2",{class:"stats__header"},"Статы",-1)),P("div",Ac,[(H(!0),W(ue,null,pn(s.value,l=>(H(),W("div",{class:"stats__row",key:l.id},[Z(bc,{modelValue:l.name,"onUpdate:modelValue":f=>l.name=f,onInput:f=>r(l),label:"Название"},null,8,["modelValue","onUpdate:modelValue","onInput"]),Z(Qr,{modelValue:l.value,"onUpdate:modelValue":f=>l.value=f,name:l.name,label:"Значение"},null,8,["modelValue","onUpdate:modelValue","name"]),Z(Ec,{modelValue:l.isCheck,"onUpdate:modelValue":f=>l.isCheck=f,name:l.name,label:"Учесть"},null,8,["modelValue","onUpdate:modelValue","name"])]))),128))])]))}},$c=Q(Rc,[["__scopeId","data-v-eb9a8a52"]]),Pc={class:"result"},Dc={class:"result__header"},Vc={class:"result__value"},Fc={__name:"ResultItem",props:{name:{type:String,required:!0},value:{type:Number,required:!0}},setup(e){const t=e;return(n,s)=>(H(),W("div",Pc,[P("span",Dc,xe(t.name),1),P("span",Vc,xe(t.value),1)]))}},Nc=Q(Fc,[["__scopeId","data-v-76f04cf0"]]),Hc={class:"result-view"},zc={class:"result-view__header"},jc={class:"result-view__content"},Lc={__name:"ResultView",props:{sumStats:{type:Number,default:0},result:{type:Array,required:!0}},setup(e){const t=e,n=us(()=>{let s=0;return t.result.forEach(r=>{s+=r.value}),s});return(s,r)=>(H(),W("div",Hc,[P("h3",zc," Результат броска: "+xe(n.value)+" + "+xe(t.sumStats)+" ("+xe(n.value+t.sumStats)+") ",1),P("div",jc,[(H(!0),W(ue,null,pn(t.result,i=>(H(),ft(Nc,{key:i.id,name:i.name,value:i.value},null,8,["name","value"]))),128))])]))}},Ws=Q(Lc,[["__scopeId","data-v-0ecde5ad"]]),Uc={class:"dice-button"},Bc={class:"dice-button__button"},Kc={__name:"DiceButton",props:{text:{type:String,default:""}},setup(e){const t=e;return(n,s)=>(H(),W("div",Uc,[P("button",Bc,xe(t.text),1)]))}},Wc=Q(Kc,[["__scopeId","data-v-5198c66e"]]),kc={class:"dice-app__content"},Jc={class:"dice-app__dices-wrapper"},qc={key:0,class:"dice-app__result"},Yc={class:"dice-app__result-wrapper"},Gc={__name:"App",setup(e){const t=nt([]),n=nt([]),s=nt([]),r=nt([]),i=us(()=>{let m=0;return n.value.forEach(y=>{y.isCheck&&(m+=y.value)}),m});ss(()=>{p()});function o(m){t.value=m}function l(m){n.value=m}function f(){s.value=[],t.value.forEach(m=>{if(m.value>0)for(let y=0;y<m.value;y++){const A=d(1,m.number);s.value.push({id:Date.now()+Math.random(),value:A,name:m.name,number:m.number,mod:i.value})}}),p(),a()}function d(m,y){return m=Math.ceil(m),y=Math.floor(y),Math.floor(Math.random()*(y-m+1))+m}function a(){if(s.value.length)try{const m=JSON.parse(localStorage.getItem("result"));m?(m.length>10&&m.shift(),m.push(s.value),localStorage.setItem("result",JSON.stringify(m))):localStorage.setItem("result",JSON.stringify([s.value]))}catch(m){console.log(m)}}function p(){try{JSON.parse(localStorage.getItem("result"))&&(r.value=JSON.parse(localStorage.getItem("result")))}catch(m){console.log(m)}}return(m,y)=>(H(),W(ue,null,[y[1]||(y[1]=P("header",null,[P("h1",{class:"dice-app__header"},"Добро пожаловать в Dice App")],-1)),P("main",kc,[P("div",Jc,[Z(pc,{onChangeDices:o}),Z(Wc,{class:"dice-app__button",text:"Бросок",onClick:f}),s.value.length?(H(),ft(Ws,{key:0,"sum-stats":i.value,result:s.value},null,8,["sum-stats","result"])):zn("",!0)]),Z($c,{onChangeStats:l})]),r.value.length?(H(),W("div",qc,[y[0]||(y[0]=P("h2",{class:"dice-app__result-h"},"Прошлые броски",-1)),P("div",Yc,[(H(!0),W(ue,null,pn(r.value,(A,R)=>(H(),ft(Ws,{class:"dice-app__result-item",key:R,"sum-stats":A[0].mod,result:A},null,8,["sum-stats","result"]))),128))])])):zn("",!0)],64))}},Xc=Q(Gc,[["__scopeId","data-v-be8ce176"]]);Il(Xc).mount("#app");
